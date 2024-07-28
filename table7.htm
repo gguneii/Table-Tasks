@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td,tr{
+            border: 1px solid black;
+            padding: 35px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+<body>
+    <table id="cdv"></table>
+
+    <script>
+        const cdv = document.getElementById("cdv")
+        kod = ''
+        let x = 0
+        for(let i=1; i<=5; i++){
+            kod += `<tr>`
+                for( let j=1; j<= 5; j++){
+                    x++
+                   let a = (i+j)% 2 ==0 ? x : ''
+                    kod += `<td>${a}</td>`
+                }
+            kod += `</tr>`
+        }
+        cdv.innerHTML = kod
+    </script>
+</body>
+</html>
