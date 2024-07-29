@@ -24,22 +24,31 @@
     <script>
         const cdv = document.getElementById("cdv")
         let kod =''
-        for(let i=1; i<=8; i++){
-            kod += `<tr>`
-                for(let j=1; j<=8; j++){
-                    let color= (i==j || i+j==9) ? "green" :
-                     (i==1 && j>=2 && j<8 )? "green": 
-                     (i==2 && j>=3 && j<7 )? "green": 
-                     (i==3 && j>=4 && j<6 )? "green": 
-                     (i==6 && j>=4 && j<6 )? "green": 
-                     (i==7 && j>=3 && j<7 )? "green": 
-                     (i==8 && j>=2 && j<8 )? "green": ''
-                     
-                    kod += `<td class="${color}"></td>`
-                }
-                kod += `</tr>`
+        // for(let i=1; i<=8; i++){
+        //     kod += `<tr>`
+        //         for(let j=1; j<=8; j++){
+                    // let color= (i==j || i+j==9) ? "green" :
+                    //  (i==1 && j>=2 && j<8 )? "green": 
+                    //  (i==2 && j>=3 && j<7 )? "green": 
+                    //  (i==3 && j>=4 && j<6 )? "green": 
+                    //  (i==6 && j>=4 && j<6 )? "green": 
+                    //  (i==7 && j>=3 && j<7 )? "green": 
+                    //  (i==8 && j>=2 && j<8 )? "green": ''
+        const rows = 8; 
+        const cols = 8; 
+        const halfRows = Math.floor(rows/2);
+        const halfCols = Math.floor(cols/2);
+        for (let i=1; i<=rows; i++) {
+            kod += '<tr>'
+            for (let j=1; j<=cols; j++) {
+                let color = (i==j || i+j==cols+1) ? "green" :
+                ((i<= halfRows && j>=i && j<=cols-i+1) || 
+                (i>halfRows && j>= rows-i+1 && j<=i)) ? "green" : ''
+                kod += `<td class="${color}">${i},${j}</td>`
+            }
+            kod += '</tr>'
         }
-        cdv.innerHTML = kod
+        cdv.innerHTML = kod;
     </script>
 </body>
 </html>
