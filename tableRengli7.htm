@@ -40,8 +40,7 @@
         for (let i=1; i<=rows; i++) {
             kod += '<tr>'
             for (let j=1; j<=cols; j++) {
-                let color = (i==j || i+j==cols+1) ? "green" :
-                ((i<= halfRows && j>=i && j<=cols-i+1) || 
+                let color = ((i<= halfRows && j>=i && j<=cols-i+1) || 
                 (i>halfRows && j>= rows-i+1 && j<=i)) ? "green" : ''
                 kod += `<td class="${color}">${i},${j}</td>`
             }
